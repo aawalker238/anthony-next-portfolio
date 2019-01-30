@@ -1,7 +1,7 @@
 import { Component } from 'react';
-// import Link from 'next/link';
 import axios from 'axios';
 import Layout from '../components/shared/Layout';
+import PageLayout from '../components/shared/PageLayout';
 import { Link } from '../routes';
 
 class Portfolio extends Component {
@@ -16,22 +16,24 @@ class Portfolio extends Component {
     return { posts };
   }
   render() {
-    const { posts } = this.props;
+    const { posts, auth } = this.props;
     return (
-      <Layout>
-        <h1>portfolio</h1>
-        <ul>
-          {posts &&
-            posts.slice(0, 10).map((post, idx) => {
-              return (
-                <li key={idx}>
-                  <Link route={`/portfolio-detail/${post.id}`}>
-                    <a>{post.title}</a>
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
+      <Layout {...auth}>
+        <PageLayout>
+          <h1>portfolio</h1>
+          <ul>
+            {posts &&
+              posts.slice(0, 10).map((post, idx) => {
+                return (
+                  <li key={idx}>
+                    <Link route={`/portfolio-detail/${post.id}`}>
+                      <a>{post.title}</a>
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+        </PageLayout>
       </Layout>
     );
   }

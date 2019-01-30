@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { withRouter } from 'next/router';
-import Layout from '../components/shared/Layout';
 import axios from 'axios';
+import Layout from '../components/shared/Layout';
+import PageLayout from '../components/shared/PageLayout';
 
 class PortfolioDetail extends Component {
   static async getInitialProps({ query }) {
@@ -16,19 +17,21 @@ class PortfolioDetail extends Component {
   }
 
   render() {
-    const { postDetails } = this.props;
+    const { postDetails, auth } = this.props;
     return (
-      <Layout>
-        <h1>PortfolioDetail Page</h1>
-        {postDetails ? (
-          <>
-            <h2>{postDetails.id}</h2>
-            <h2>{postDetails.title}</h2>
-            <p>{postDetails.body}</p>
-          </>
-        ) : (
-          <h2>Post not found</h2>
-        )}
+      <Layout {...auth}>
+        <PageLayout>
+          <h1>PortfolioDetail Page</h1>
+          {postDetails ? (
+            <>
+              <h2>{postDetails.id}</h2>
+              <h2>{postDetails.title}</h2>
+              <p>{postDetails.body}</p>
+            </>
+          ) : (
+            <h2>Post not found</h2>
+          )}
+        </PageLayout>
       </Layout>
     );
   }

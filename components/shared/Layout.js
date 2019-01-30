@@ -1,9 +1,12 @@
 import Navigation from './Navigation';
-export default ({ children }) => {
+
+export default ({ children, className, isAuthenticated }) => {
   return (
-    <>
-      <Navigation />
-      <div className="main-container">{children}</div>
-    </>
+    <div className="layout-container">
+      <Navigation isAuthenticated={isAuthenticated} />
+      <main className={`cover ${className}`}>
+        <div className="wrapper">{children}</div>
+      </main>
+    </div>
   );
 };

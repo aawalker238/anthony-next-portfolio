@@ -1,3 +1,51 @@
-.custom {
-  color: red;
+/**** FONTS ****/
+@import './shared/fonts';
+
+/**** NAVIGATION ****/
+@import './shared/navigation';
+
+/**** PAGES ****/
+@import './index';
+
+/**** GLOBAL ****/
+html,
+body {
+  font-family: 'Montserrat', 'Helvetica' !important;
+  height: 100%;
+  width: 100%;
+}
+
+.self-typed {
+  font-size: 31px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.card {
+  border: none;
+  box-shadow: -17px 13px 41px rgba(13, 78, 158, 0.6);
+  .card-body {
+    box-shadow: -17px 13px 13px rgba(0, 0, 0, 0.09);
+  }
+}
+
+.base-page {
+  padding-top: 150px;
+  color: #fff;
+  h1 {
+    font-weight: lighter;
+  }
+}
+
+.card-title {
+  font-size: 2em;
+}
+
+.carousel-indicators {
+  bottom: 20px;
+}
+
+.clickable {
+  cursor: pointer;
 }
